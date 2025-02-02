@@ -1,17 +1,17 @@
-# [Project Name] 🎯
+# FemiTrack🎯
 
 
 ## Basic Details
-### Team Name: [Name]
+### Team Name: TechVita
 
 
 ### Team Members
-- Member 1: [Name] - [College]
-- Member 2: [Name] - [College]
-- Member 3: [Name] - [College]
+- Member 1: [Thanseeha Nargees] - [Mar Baselios Institute of Technology and Science]
+- Member 2: [Surya Mol P.O] - [Mar Baselios Institute of Technology and Science]
+- Member 3: [Rithika Jobi] - [Mar Baselios Institute of Technology and Science]
 
 ### Hosted Project Link
-[mention your project hosted project link here]
+[]
 
 ### Project Description
 [2-3 lines about what your project does]
@@ -20,15 +20,15 @@
 [What ridiculous problem are you solving?]
 
 ### The Solution
-[How are you solving it? Keep it fun!]
+[]
 
 ## Technical Details
 ### Technologies/Components Used
 For Software:
-- [Languages used]
-- [Frameworks used]
-- [Libraries used]
-- [Tools used]
+- HTML
+- CSS
+- Sql
+- Visual Studio Code
 
 For Hardware:
 - [List main components]

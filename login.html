@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Register</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        input[type="text"], input[type="password"], input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        h2 {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <div id="loginForm">
+        <h2>Login</h2>
+        <form id="loginFormContent" action="" method="post">
+            <input type="text" id="username" name="username" placeholder="Username" required><br>
+            <input type="password" id="password" name="password" placeholder="Password" required><br>
+            <button type="submit" onclick="handleLogin(event)">Login</button>
+        </form>
+        <div class="register-link">
+            <p>Don't have an account? <a href="#" onclick="toggleForm('register')">Register here</a></p>
+        </div>
+    </div>
+
+    <div id="registerForm" style="display: none;">
+        <h2>Register</h2>
+        <form id="registerFormContent" action="" method="post">
+            <input type="email" id="email" name="email" placeholder="Email" required><br>
+            <input type="text" id="newUsername" name="newUsername" placeholder="Username" required><br>
+            <input type="password" id="newPassword" name="newPassword" placeholder="Password" required><br>
+            <button type="submit" onclick="handleRegister(event)">Register</button>
+        </form>
+        <div class="register-link">
+            <p>Already have an account? <a href="#" onclick="toggleForm('login')">Login here</a></p>
+        </div>
+    </div>
+</div>
+
+<script>
+    const users = [
+        { username: 'user1', password: 'password123', email: 'user1@example.com' },
+        { username: 'user2', password: 'password456', email: 'user2@example.com' }
+    ];
+
+    function handleLogin(event) {
+        event.preventDefault();
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        const user = users.find(u => u.username === username && u.password === password);
+
+        if (user) {
+            localStorage.setItem('loggedInUser', username); // Store user in localStorage for session
+            window.location.href = 'mainPage.html'; // Redirect to main page
+        } else {
+            alert("Invalid username or password.");
+        }
+    }
+
+    function handleRegister(event) {
+        event.preventDefault();
+        const email = document.getElementById('email').value;
+        const newUsername = document.getElementById('newUsername').value;
+        const newPassword = document.getElementById('newPassword').value;
+
+        users.push({ username: newUsername, password: newPassword, email: email });
+        alert("Registration successful! You can now log in.");
+        toggleForm('login');
+    }
+
+    function toggleForm(form) {
+        if (form === 'login') {
+            document.getElementById('loginForm').style.display = 'block';
+            document.getElementById('registerForm').style.display = 'none';
+        } else if (form === 'register') {
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('registerForm').style.display = 'block';
+        }
+    }
+</script>
+
+</body>
+</html>
